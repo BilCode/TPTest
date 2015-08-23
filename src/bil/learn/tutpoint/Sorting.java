@@ -85,19 +85,17 @@ public class Sorting {
 
 	private int[] merge(int mergelist1[], int mergelist2[])
 	{
-		int k=0,j=0,i=0,uk=0,uj=0;
+		int k=0,j=0,i=0;
 		int sortedmergeList[] =new int[mergelist1.length+mergelist2.length];
 		while (k<mergelist1.length&&j<mergelist2.length)
 		{
 			if(mergelist1[k]<mergelist2[j])
 			{
-				uk++;
 				sortedmergeList[i]=mergelist1[k];
 				k++;
 
 			}else
 			{
-				uj++;
 				sortedmergeList[i]=mergelist2[j];
 				j++;
 			}
