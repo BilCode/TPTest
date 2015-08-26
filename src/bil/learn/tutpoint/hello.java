@@ -32,9 +32,9 @@ public class hello extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		System.out.println(request.getRequestedSessionId());
-		
+
 		if(request.getParameter("sorting")!=null&&(request.getParameter("sorting").equals("true")))
 		{
 			int[] data = new int[]{4,6,46,10,7,3,9,1,5,2};
@@ -56,7 +56,7 @@ public class hello extends HttpServlet {
 			RunnableDemo R2 = new RunnableDemo( "Thread-2");
 			R2.setCounter(counter);
 			R2.start();*/
-			
+
 			/**Thread**/
 			/*PrintDemo PD = new PrintDemo();
 
@@ -65,12 +65,14 @@ public class hello extends HttpServlet {
 
 			T1.start();
 			T2.start();*/
-			
+
 			/**Interthread Communication**/
-			  Chat m = new Chat();
-		        new T1(m);
-		        new T2(m);
+			/*Chat m = new Chat();
+			new T1(m);
+			new T2(m);*/
 			
+			
+
 		}else
 		{
 			Cookie firstName = new Cookie("first_name",
@@ -86,8 +88,8 @@ public class hello extends HttpServlet {
 			cookies = request.getCookies();
 
 			String docType =
-					"<!doctype html public \"-//w3c//dtd html 4.0 " +
-							"transitional//en\">\n";
+				"<!doctype html public \"-//w3c//dtd html 4.0 " +
+				"transitional//en\">\n";
 			out.println(docType +
 					"<html>\n" +
 					"<head><title>" + title + "</title></head>\n" +
@@ -98,7 +100,7 @@ public class hello extends HttpServlet {
 					+ request.getParameter("first_name") + "\n" +
 					"  <li><b>Last Name</b>: "
 					+ request.getParameter("last_name") + "\n" +
-					"</ul>\n");
+			"</ul>\n");
 
 			if( cookies != null ){
 				out.println("<h2> Cookies Name and Value</h2>");
@@ -115,7 +117,7 @@ public class hello extends HttpServlet {
 				}
 			}else{
 				out.println(
-						"<h2>No cookies founds</h2>");
+				"<h2>No cookies founds</h2>");
 			}
 			out.println(docType +"</body></html>");
 		}
