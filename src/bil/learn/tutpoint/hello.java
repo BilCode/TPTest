@@ -35,6 +35,12 @@ public class hello extends HttpServlet {
 
 		System.out.println(request.getRequestedSessionId());
 
+		if(request.getParameter("fabronic")!=null&&(request.getParameter("fabronic").equals("true")))
+		{
+			FabronicSeries fs = new FabronicSeries();
+			String fabseries= fs.genrateSeries(60);
+			response.getWriter().println("Fabronic series "+fabseries);
+		}else
 		if(request.getParameter("sorting")!=null&&(request.getParameter("sorting").equals("true")))
 		{
 			int[] data = new int[]{4,6,46,10,7,3,9,1,5,2};
@@ -71,8 +77,6 @@ public class hello extends HttpServlet {
 			new T1(m);
 			new T2(m);*/
 			
-			
-
 		}else
 		{
 			Cookie firstName = new Cookie("first_name",
@@ -127,7 +131,7 @@ public class hello extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 	}
 
 }
