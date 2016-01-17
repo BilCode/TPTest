@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-
 /**
  * Servlet implementation class hello
  */
@@ -77,6 +74,14 @@ public class hello extends HttpServlet {
 			new T1(m);
 			new T2(m);*/
 			
+		}else if(request.getParameter("thousandprint")!=null&&(request.getParameter("thousandprint").equals("true")))
+		{
+			for(int i=0;i<1000;i++){
+				for(int k=1;k<7;k++){
+					response.getWriter().print(""+(k));
+				}
+				if(i>498) break;
+			}
 		}else
 		{
 			Cookie firstName = new Cookie("first_name",

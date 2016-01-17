@@ -2,12 +2,6 @@ package bil.learn.tutpoint;
 
 import java.util.Arrays;
 
-import javax.swing.text.StyleContext.SmallAttributeSet;
-
-import sun.security.util.Length;
-
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.IntArrayData;
-
 public class Sorting {
 
 	private int Numbers[];
@@ -69,7 +63,7 @@ public class Sorting {
 			System.out.println("Length "+midLength+"");
 			int[] leftList = new int[midLength];
 			int[] rightList = new int[lenNumbers-midLength];
-			
+
 			System.arraycopy(ListToSort, 0, leftList, 0, midLength);
 			System.arraycopy(ListToSort, midLength, rightList, 0, (lenNumbers-midLength));
 			System.out.println("Left"+ Arrays.toString(leftList));
@@ -93,7 +87,6 @@ public class Sorting {
 			{
 				sortedmergeList[i]=mergelist1[k];
 				k++;
-
 			}else
 			{
 				sortedmergeList[i]=mergelist2[j];
@@ -103,7 +96,6 @@ public class Sorting {
 		}
 		if(k<mergelist1.length)
 		{
-			
 			while (k<mergelist1.length){
 				//System.out.println("k "+k+" mergelist1 "+mergelist1.length);
 				sortedmergeList[i]=mergelist1[k];
@@ -111,7 +103,6 @@ public class Sorting {
 			}
 		}else if(j<mergelist2.length)
 		{
-			
 			while (j<mergelist2.length){
 				//System.out.println("j "+j+" mergelist1 "+mergelist2.length);
 				sortedmergeList[i]=mergelist2[j];
@@ -121,4 +112,9 @@ public class Sorting {
 		return sortedmergeList;
 	}
 
+	//**Heap Sort**/
+	private int[] maxheap(int[] a,int rootindex)
+	{
+		return a;
+	}
 }
