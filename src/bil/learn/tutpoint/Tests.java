@@ -21,6 +21,12 @@ class Testing{
 		return String.valueOf(strc);
 	}
 
+	public int powerN(int base, int n) {
+		if(n ==1) return base;
+		int c = powerN(base,--n);
+		return base * c;
+	}
+
 	public String makeOutWord(String out, String word) {
 		int l = out.length()-1;
 		int lh = l/2;
