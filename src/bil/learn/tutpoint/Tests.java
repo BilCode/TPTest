@@ -8,6 +8,12 @@ public class Tests {
 		System.out.println(testing. lastTwo("Coding"));
 		System.out.println(testing. withoutX("xCoding"));
 		System.out.println(testing. stringMatch("xxcaazz", "xxbaaz"));
+		OOPTest objoop = new OOPTest();
+		System.out.println(objoop.b);
+		Childoop objcoop = new Childoop();
+		System.out.println(objcoop.a);
+		objoop.pTest();
+		Childoop.sTest();
 	}
 }
 
