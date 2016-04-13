@@ -5,7 +5,7 @@ public class Tests {
 	public static void main(String[] args) {
 		System.out.println("Test");
 		Testing testing = new Testing();
-		System.out.println(testing. lastTwo("Coding"));
+		/*System.out.println(testing. lastTwo("Coding"));
 		System.out.println(testing. withoutX("xCoding"));
 		System.out.println(testing. stringMatch("xxcaazz", "xxbaaz"));
 		OOPTest objoop = new OOPTest();
@@ -13,7 +13,8 @@ public class Tests {
 		Childoop objcoop = new Childoop();
 		System.out.println(objcoop.a);
 		objoop.pTest();
-		Childoop.sTest();
+		Childoop.sTest();*/
+		testing.printTriangle();
 	}
 }
 
@@ -61,6 +62,17 @@ class Testing{
 			s=s+1;
 		}
 		return count;
+	}
+	
+	public void printTriangle(){
+		//Using on loop
+		int i=0;
+		String printer="";
+		while (i<5){
+			i++;
+			printer+= " "+ String.valueOf(i);
+			System.out.println(printer);
+		}
 	}
 
 }
