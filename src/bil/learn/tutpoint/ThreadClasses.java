@@ -11,7 +11,6 @@ class PrintDemo {
 			System.out.println("Thread  interrupted.");
 		}
 	}
-
 }
 
 class ThreadDemo extends Thread {

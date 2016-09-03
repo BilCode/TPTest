@@ -51,14 +51,14 @@ public class hello extends HttpServlet {
 		}else if(request.getParameter("thread")!=null&&(request.getParameter("thread").equals("true")))
 		{
 			/**Thread in runable**/
-			/*Counter counter = new Counter();
+			Counter counter = new Counter();
 			RunnableDemo R1 = new RunnableDemo( "Thread-1");
 			R1.setCounter(counter);
 			R1.start();
 
 			RunnableDemo R2 = new RunnableDemo( "Thread-2");
 			R2.setCounter(counter);
-			R2.start();*/
+			R2.start();
 
 			/**Thread**/
 			/*PrintDemo PD = new PrintDemo();
