@@ -1,9 +1,14 @@
 package bil.learn.tutpoint;
 
+import java.util.ArrayList;
+
 /**
  * Created by Bilal on 028, 28-Aug-16.
  */
 public class Testing {
+
+    public static String test = "Testing";
+
     public String lastTwo(String str) {
         char[] strc = str.toCharArray();
         int l = str.length() - 1;
@@ -74,7 +79,7 @@ public class Testing {
     }
 
     void findLongestPalindrome(String input) {
-        if(isPalindrome(input)){
+        if (isPalindrome(input)) {
             System.out.println(input);
             return;
         }
@@ -83,16 +88,16 @@ public class Testing {
             int l = input.length() - (i + 1);
             int s = 0;
             int end = l;
-            while ((end <= input.length())&&(l>1)) {
+            while ((end <= input.length()) && (l > 1)) {
                 String temp = input.substring(s, end);
                 if (isPalindrome(temp)) {
                     System.out.println(temp);
                     found = true;
                 }
                 s++;
-                end = s+l;
+                end = s + l;
             }
-            if(found) return;
+            if (found) return;
         }
     }
 
@@ -103,38 +108,133 @@ public class Testing {
         return false;
     }
 
-    public static char firstNonRepeative(String input){
+    public static char firstNonRepeative(String input) {
         //input=input.toLowerCase();
         char[] inputchar = input.toCharArray();
         boolean found;
-        for(int i=0;i<input.length();i++) {
-            found=true;
-            for (int k =( i+1); k < input.length(); k++)
-            {
-                if(inputchar[i]==inputchar[k]){
+        for (int i = 0; i < input.length(); i++) {
+            found = true;
+            for (int k = (i + 1); k < input.length(); k++) {
+                if (inputchar[i] == inputchar[k]) {
                     //System.out.println(inputchar[i]+ "Matched with "+inputchar[k]);
-                    found=false;
+                    found = false;
                     break;
                 }
             }
-            if(found)
-            {
-                System.out.println("First non repeated  "+inputchar[i]);
+            if (found) {
+                System.out.println("First non repeated  " + inputchar[i]);
                 return inputchar[i];
             }
         }
         return '-';
     }
 
-    void findOccurrenceOfChar(String input,char a){
-        int count =0;
+    void findOccurrenceOfChar(String input, char a) {
+        int count = 0;
         char[] inputChar = input.toCharArray();
-        for(int i =0;i<input.length();i++){
-            if(inputChar[i]==a){
+        for (int i = 0; i < input.length(); i++) {
+            if (inputChar[i] == a) {
                 count++;
             }
         }
-        System.out.println("Occurance of "+a+" is "+count+" times");
+        System.out.println("Occurance of " + a + " is " + count + " times");
+    }
+
+    void findWhiteFromBlackSquare(int[][] image) {
+        ArrayList<WhiteBox> whiteBoxes = new ArrayList<WhiteBox>();
+        WhiteBox opened = null;
+        for (int y = 0; y < image.length; y++) {
+            for (int x = 0; x < image[0].length; x++) {
+                System.out.print(image[y][x]);
+                if (image[y][x] == 1) {
+                    if (opened == null) {
+                        opened = new WhiteBox();
+                        opened.setStartx(x);
+                        opened.setStarty(y);
+                    } else {
+                        opened.setEndx(x);
+                        opened.setEndy(y);
+                    }
+                } else {
+                    if (opened != null) {
+                        if (y == 0)
+                            whiteBoxes.add(opened);
+                        else {
+                            opened.updateInList(whiteBoxes);
+                            if (((opened.getEndy() + 1) < (image.length - 1)) && image[opened.getEndy() + 1][opened.getEndx()] != 1) {
+                                opened.setOpened(false);
+                            }
+                        }
+                        opened = null;
+                    }
+                }
+            }
+            System.out.println("");
+        }
+        for (WhiteBox whiteBox : whiteBoxes) {
+            System.out.println("(" + whiteBox.getStartx() + ", " + whiteBox.getStarty() + ")" + ": (" + whiteBox.getEndx() + " ," + whiteBox.getEndy() + ")");
+        }
+    }
+}
+
+class WhiteBox {
+    private int startx, starty, endx, endy;
+    private boolean isOpened = true;
+
+    public int getStartx() {
+        return startx;
+    }
+
+    public void setStartx(int startx) {
+        this.startx = startx;
+    }
+
+    public int getStarty() {
+        return starty;
+    }
+
+    public void setStarty(int starty) {
+        this.starty = starty;
+    }
+
+    public int getEndx() {
+        return endx;
+    }
+
+    public void setEndx(int endx) {
+        this.endx = endx;
+    }
+
+    public int getEndy() {
+        return endy;
+    }
+
+    public void setEndy(int endy) {
+        this.endy = endy;
+    }
+
+    public boolean isOpened() {
+        return isOpened;
+    }
+
+    public void setOpened(boolean opened) {
+        isOpened = opened;
+    }
+
+    void updateInList(ArrayList<WhiteBox> whiteBoxes) {
+        boolean isUpdated = false;
+        for (WhiteBox whiteBox : whiteBoxes) {
+            if ((whiteBox.getStartx() == this.getStartx()) && (whiteBox.getEndx() == this.getEndx()) && whiteBox.isOpened()) {
+                whiteBox.setEndy(this.getEndy());
+                isUpdated = true;
+                break;
+            }
+        }
+        if (!isUpdated) {
+            whiteBoxes.add(this);
+        }
     }
 
 }
+
+
